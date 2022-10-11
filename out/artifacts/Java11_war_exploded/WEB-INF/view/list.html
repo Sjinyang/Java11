@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查询所有士兵</title>
+</head>
+<body>
+<div>
+  <form th:action="@{soldier(method='DeptJump')}" method="post">
+    <input type="submit" value="修改" name="abc">
+    <input type="submit" value="创建"  name="abc">
+    <input type="submit" value="删除"  name="abc">
+    <table border="1px">
+      <tr>
+        <th></th>
+        <th>部门编号</th>
+        <th>部门名称</th>
+        <th>所属省份</th>
+        <th>部门人数</th>
+        <th>描述</th>
+      </tr>
+      <tr th:each="item : ${soldiers}">
+        <td>
+          <input type="checkbox" th:value="${item.deptId}" name="id">
+        </td>
+        <input type="hidden" th:value="${item.deptId}">
+        <td th:text="${item.deptNumber}"></td>
+        <td th:text="${item.deptName}"></td>
+        <td th:text="${item.Province}"></td>
+        <td th:text="${item.peopleCounting}"></td>
+        <td th:text="${item.Described}"></td>
+      </tr>
+    </table>
+  </form>
+
+</div>
+
+</body>
+<script>
+
+</script>
+</html>
